@@ -185,9 +185,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const lightbox = document.createElement("div");
     lightbox.className = "lightbox";
     lightbox.innerHTML =
-      '<button class="lb-close" aria-label="Close">&times;</button>' +
-      '<button class="lb-prev" aria-label="Previous">&#8249;</button>' +
-      '<button class="lb-next" aria-label="Next">&#8250;</button>' +
+      '<button class="lb-close" aria-label="Close"><span class="material-icons">close</span></button>' +
+      '<button class="lb-prev" aria-label="Previous"><span class="material-icons">chevron_left</span></button>' +
+      '<button class="lb-next" aria-label="Next"><span class="material-icons">chevron_right</span></button>' +
       '<div class="lb-media"></div>';
     document.body.appendChild(lightbox);
     const mediaBox = lightbox.querySelector(".lb-media");

@@ -3,7 +3,7 @@ function renderHeader() {
   document.getElementById("site-header").innerHTML = `
   <div class="topbar">
     <div class="container topbar-inner">
-      <span class="topbar-item">&#128205; 1st Floor, Shinwari Plaza, Nasir Bagh Road, Peshawar</span>
+      <span class="topbar-item"><span class="material-icons" style="font-size:13px; vertical-align:-2px; margin-right:6px;">place</span>1st Floor, Shinwari Plaza, Nasir Bagh Road, Peshawar</span>
       <div class="topbar-links">
         <a href="https://facebook.com/D.RealEstateofficial" target="_blank" class="topbar-item social-link" title="Facebook">
           <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13.5 21v-7h2.4l.36-2.8H13.5V9.4c0-.81.22-1.36 1.38-1.36h1.48V5.55c-.26-.03-1.13-.11-2.15-.11-2.13 0-3.59 1.3-3.59 3.69v2.06H8.2V14h2.42v7h2.88z"/></svg>
@@ -22,7 +22,7 @@ function renderHeader() {
   </div>
   <nav class="navbar" id="navbar">
     <div class="container nav-inner">
-      <a href="index.html" class="brand">
+      <a href="${base}index.html" class="brand">
         <img src="${base}logo.jfif" alt="Durrani Group of Companies Logo" class="brand-logo">
         <span class="brand-text">
           <strong>DURRANI</strong>
@@ -34,51 +34,51 @@ function renderHeader() {
       </button>
       <div class="nav-menu" id="navMenu">
         <ul class="nav-links">
-          <li><a href="index.html" data-i18n="navHome">Home</a></li>
+          <li><a href="${base}index.html" data-i18n="navHome">Home</a></li>
           <li class="dropdown">
-            <a href="#" class="drop-toggle" data-i18n="navAbout">About <span class="caret">&#9662;</span></a>
+            <a href="#" class="drop-toggle" data-i18n="navAbout">About <span class="material-icons caret">arrow_drop_down</span></a>
             <ul class="dropdown-menu">
-              <li><a href="pages/about.html" data-i18n="navAboutUs">About Us</a></li>
-              <li><a href="pages/founder-message.html" data-i18n="navFounder">Founder's Message</a></li>
-              <li><a href="pages/chairman-message.html" data-i18n="navChairman">CEO's Message</a></li>
-              <li><a href="pages/divisions.html" data-i18n="navDivisions">Business Divisions</a></li>
-              <li><a href="pages/companies.html" data-i18n="navOurCompanies">Our Companies</a></li>
+              <li><a href="${base}pages/about.html" data-i18n="navAboutUs">About Us</a></li>
+              <li><a href="${base}pages/founder-message.html" data-i18n="navFounder">Founder's Message</a></li>
+              <li><a href="${base}pages/chairman-message.html" data-i18n="navChairman">CEO's Message</a></li>
+              <li><a href="${base}pages/divisions.html" data-i18n="navDivisions">Business Divisions</a></li>
+              <li><a href="${base}pages/companies.html" data-i18n="navOurCompanies">Our Companies</a></li>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="drop-toggle" data-i18n="navProjects">Projects <span class="caret">&#9662;</span></a>
+            <a href="#" class="drop-toggle" data-i18n="navProjects">Projects <span class="material-icons caret">arrow_drop_down</span></a>
             <ul class="dropdown-menu">
-              <li><a href="pages/malik-town.html" data-i18n="navMalik">Malik Town Housing Society</a></li>
-              <li><a href="pages/durrani-enclave.html" data-i18n="navEnclave">Durrani Enclave</a></li>
-              <li><a href="pages/durrani-residency.html" data-i18n="navResidency">Durrani Residency CHS</a></li>
-              <li><a href="pages/kalam-housing.html" data-i18n="navKalam">Kalam Housing Project</a></li>
-              <li><a href="pages/regi-model-town.html" data-i18n="navRegi">Regi Model Town</a></li>
-              <li><a href="pages/sheikh-yaseen-town.html" data-i18n="navSheikh">Sheikh Yaseen Town</a></li>
+              <li><a href="${base}pages/malik-town.html" data-i18n="navMalik">Malik Town Housing Society</a></li>
+              <li><a href="${base}pages/durrani-enclave.html" data-i18n="navEnclave">Durrani Enclave</a></li>
+              <li><a href="${base}pages/durrani-residency.html" data-i18n="navResidency">Durrani Residency CHS</a></li>
+              <li><a href="${base}pages/kalam-housing.html" data-i18n="navKalam">Kalam Housing Project</a></li>
+              <li><a href="${base}pages/regi-model-town.html" data-i18n="navRegi">Regi Model Town</a></li>
+              <li><a href="${base}pages/sheikh-yaseen-town.html" data-i18n="navSheikh">Sheikh Yaseen Town</a></li>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="drop-toggle" data-i18n="navCompanies">Companies <span class="caret">&#9662;</span></a>
+            <a href="#" class="drop-toggle" data-i18n="navCompanies">Companies <span class="material-icons caret">arrow_drop_down</span></a>
             <ul class="dropdown-menu">
-              <li><a href="pages/companies.html#real-estate">Durrani Real Estate</a></li>
-              <li><a href="pages/companies.html#builders">Durrani Builders</a></li>
-              <li><a href="pages/companies.html#developers">Durrani Developers Pvt. Ltd.</a></li>
-              <li><a href="pages/companies.html#marketing">Durrani Marketing Agency</a></li>
-              <li><a href="pages/companies.html#landscape">Durrani Garden Landscape</a></li>
-              <li><a href="pages/companies.html#spring-rose">Spring Rose Real Estate</a></li>
-              <li><a href="pages/companies.html#events">Spring Rose Events</a></li>
+              <li><a href="${base}pages/companies.html#real-estate">Durrani Real Estate</a></li>
+              <li><a href="${base}pages/companies.html#builders">Durrani Builders</a></li>
+              <li><a href="${base}pages/companies.html#developers">Durrani Developers Pvt. Ltd.</a></li>
+              <li><a href="${base}pages/companies.html#marketing">Durrani Marketing Agency</a></li>
+              <li><a href="${base}pages/companies.html#landscape">Durrani Garden Landscape</a></li>
+              <li><a href="${base}pages/companies.html#spring-rose">Spring Rose Real Estate</a></li>
+              <li><a href="${base}pages/companies.html#events">Spring Rose Events</a></li>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="drop-toggle" data-i18n="navMedia">Media <span class="caret">&#9662;</span></a>
+            <a href="#" class="drop-toggle" data-i18n="navMedia">Media <span class="material-icons caret">arrow_drop_down</span></a>
             <ul class="dropdown-menu">
-              <li><a href="pages/gallery.html" data-i18n="navGallery">Gallery</a></li>
-              <li><a href="pages/videos.html" data-i18n="navVideos">Videos</a></li>
-              <li><a href="pages/downloads.html" data-i18n="navDownloads">Download Center</a></li>
-              <li><a href="pages/news.html" data-i18n="navNews">News &amp; Media</a></li>
-              <li><a href="pages/blog.html" data-i18n="navBlog">Blog</a></li>
+              <li><a href="${base}pages/gallery.html" data-i18n="navGallery">Gallery</a></li>
+              <li><a href="${base}pages/videos.html" data-i18n="navVideos">Videos</a></li>
+              <li><a href="${base}pages/downloads.html" data-i18n="navDownloads">Download Center</a></li>
+              <li><a href="${base}pages/news.html" data-i18n="navNews">News &amp; Media</a></li>
+              <li><a href="${base}pages/blog.html" data-i18n="navBlog">Blog</a></li>
             </ul>
           </li>
-          <li><a href="pages/contact.html" data-i18n="navContact">Contact</a></li>
+          <li><a href="${base}pages/contact.html" data-i18n="navContact">Contact</a></li>
         </ul>
         <div class="nav-cta">
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle day / night mode">
@@ -88,9 +88,8 @@ function renderHeader() {
           <div class="lang-switch">
             <button class="lang-btn active" data-lang="en">EN</button>
             <button class="lang-btn" data-lang="ur">&#1575;&#1585;&#1583;&#1608;</button>
-            <button class="lang-btn" data-lang="ps">&#1662;&#1690;&#1578;&#1608;</button>
           </div>
-          <a href="pages/contact.html" class="btn btn-green" data-i18n="navFreeConsult">Free Consultation</a>
+          <a href="${base}pages/contact.html" class="btn btn-green" data-i18n="navFreeConsult">Free Consultation</a>
         </div>
       </div>
     </div>
@@ -103,7 +102,7 @@ function renderFooter() {
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-col footer-about">
-        <a href="index.html" class="brand footer-brand">
+        <a href="${base}index.html" class="brand footer-brand">
           <img src="${base}logo.jfif" alt="Durrani Group of Companies Logo" class="brand-logo">
           <span class="brand-text">
             <strong>DURRANI</strong>
@@ -137,29 +136,29 @@ function renderFooter() {
       <div class="footer-col">
         <h4 data-i18n="fQuick">Quick Links</h4>
         <ul>
-          <li><a href="index.html" data-i18n="navHome">Home</a></li>
-          <li><a href="pages/about.html" data-i18n="navAboutUs">About Us</a></li>
-          <li><a href="pages/gallery.html" data-i18n="navGallery">Gallery</a></li>
-          <li><a href="pages/blog.html" data-i18n="navBlog">Blog</a></li>
-          <li><a href="pages/downloads.html" data-i18n="navDownloads">Download Center</a></li>
-          <li><a href="pages/contact.html" data-i18n="navContact">Contact Us</a></li>
+          <li><a href="${base}index.html" data-i18n="navHome">Home</a></li>
+          <li><a href="${base}pages/about.html" data-i18n="navAboutUs">About Us</a></li>
+          <li><a href="${base}pages/gallery.html" data-i18n="navGallery">Gallery</a></li>
+          <li><a href="${base}pages/blog.html" data-i18n="navBlog">Blog</a></li>
+          <li><a href="${base}pages/downloads.html" data-i18n="navDownloads">Download Center</a></li>
+          <li><a href="${base}pages/contact.html" data-i18n="navContact">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4 data-i18n="navProjects">Our Projects</h4>
         <ul>
-          <li><a href="pages/malik-town.html" data-i18n="navMalik">Malik Town Housing Society</a></li>
-          <li><a href="pages/durrani-enclave.html" data-i18n="navEnclave">Durrani Enclave</a></li>
-          <li><a href="pages/durrani-residency.html" data-i18n="navResidency">Durrani Residency CHS</a></li>
-          <li><a href="pages/kalam-housing.html" data-i18n="navKalam">Kalam Housing Project</a></li>
-          <li><a href="pages/regi-model-town.html" data-i18n="navRegi">Regi Model Town</a></li>
-          <li><a href="pages/sheikh-yaseen-town.html" data-i18n="navSheikh">Sheikh Yaseen Town</a></li>
+          <li><a href="${base}pages/malik-town.html" data-i18n="navMalik">Malik Town Housing Society</a></li>
+          <li><a href="${base}pages/durrani-enclave.html" data-i18n="navEnclave">Durrani Enclave</a></li>
+          <li><a href="${base}pages/durrani-residency.html" data-i18n="navResidency">Durrani Residency CHS</a></li>
+          <li><a href="${base}pages/kalam-housing.html" data-i18n="navKalam">Kalam Housing Project</a></li>
+          <li><a href="${base}pages/regi-model-town.html" data-i18n="navRegi">Regi Model Town</a></li>
+          <li><a href="${base}pages/sheikh-yaseen-town.html" data-i18n="navSheikh">Sheikh Yaseen Town</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4 data-i18n="fContactHead">Contact</h4>
         <ul class="footer-contact">
-          <li>&#128205; 1st Floor, Shinwari Plaza, Nasir Bagh Road, Peshawar, KP, Pakistan</li>
+          <li><span class="material-icons" style="font-size:15px; vertical-align:-2px; margin-right:6px;">place</span>1st Floor, Shinwari Plaza, Nasir Bagh Road, Peshawar, KP, Pakistan</li>
           <li><a href="https://wa.me/9234592025527" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Mazhar Durrani (Founder) &mdash; 0345 92025527</a></li>
           <li><a href="https://wa.me/923159048363" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Mubashir Durrani (CEO) &mdash; 0315 9048363</a></li>
           <li><a href="https://wa.me/923368800085" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Shahsaud (Office Manager) &mdash; 0336 8800085</a></li>
@@ -191,7 +190,7 @@ function renderFooter() {
     tb.id = "topBtn";
     tb.className = "top-btn";
     tb.setAttribute("aria-label", "Back to top");
-    tb.innerHTML = "&#8593;";
+    tb.innerHTML = '<span class="material-icons" style="font-size:20px;">arrow_upward</span>';
     tb.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
     document.body.appendChild(tb);
   }

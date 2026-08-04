@@ -121,7 +121,22 @@ h1, h2, h3, h4 { font-family: var(--font-head); color: var(--ink); line-height: 
   transition: color 0.25s;
 }
 .nav-links > li > a:hover { color: var(--blue); }
-.caret { font-size: 10px; color: var(--muted); }
+.caret { font-size: 16px; color: var(--muted); vertical-align: -2px; }
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
 
 .dropdown-menu {
   position: absolute;
@@ -312,7 +327,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
 .hero-trust { display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 38px; }
 .hero-trust span { font-size: 13px; color: #e6dab0; font-weight: 500; }
-.hero-trust span::before { content: "\2713"; color: var(--green); font-weight: 700; margin-right: 7px; }
+.hero-trust span::before { font-family: "Material Icons"; content: "check"; color: var(--green); margin-right: 7px; vertical-align: -2px; font-size: 15px; }
 .hero-stats {
   display: flex;
   gap: 46px;
@@ -898,15 +913,28 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
   height: 220px;
 }
 .proj-gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.proj-gallery video { width: 100%; height: 100%; object-fit: cover; }
+.proj-gallery figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 10px 12px;
+  background: linear-gradient(transparent, rgba(7, 28, 62, 0.85));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  pointer-events: none;
+}
 .proj-gallery figure:hover img { transform: scale(1.08); }
 .proj-gallery figure.video-item::after {
-  content: "\25B6";
+  font-family: "Material Icons";
+  content: "play_circle";
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: 44px;
   color: #fff;
   background: rgba(4, 24, 61, 0.45);
 }
