@@ -132,34 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
     next.addEventListener("click", function () { projectsSlider.scrollBy({ left: step, behavior: "smooth" }); });
   }
 
-  const tTrack = document.getElementById("tTrack");
-  if (tTrack) {
-    const slides = tTrack.children;
-    const dotsWrap = document.getElementById("tDots");
-    let current = 0;
-    let tTimer = null;
-
-    for (let i = 0; i < slides.length; i++) {
-      const dot = document.createElement("button");
-      if (i === 0) dot.classList.add("active");
-      dot.setAttribute("aria-label", "Testimonial " + (i + 1));
-      dot.addEventListener("click", function () { go(i); restartT(); });
-      dotsWrap.appendChild(dot);
-    }
-    const dots = dotsWrap.querySelectorAll("button");
-
-    function go(i) {
-      current = (i + slides.length) % slides.length;
-      tTrack.style.transform = "translateX(-" + current * 100 + "%)";
-      dots.forEach(function (d, idx) { d.classList.toggle("active", idx === current); });
-    }
-    function restartT() {
-      if (tTimer) clearInterval(tTimer);
-      tTimer = setInterval(function () { go(current + 1); }, 6000);
-    }
-    restartT();
-  }
-
   const consultForm = document.getElementById("consultForm");
   if (consultForm) {
     consultForm.addEventListener("submit", function (e) {
@@ -178,6 +150,57 @@ document.addEventListener("DOMContentLoaded", function () {
         "Message: " + encodeURIComponent(msg || "Free consultation request");
       window.open("https://wa.me/923368800085?text=" + text, "_blank");
     });
+  }
+
+  const reviewForm = document.getElementById("reviewForm");
+  if (reviewForm) {
+    const starWrap = document.getElementById("starInput");
+    const stars = starWrap.querySelectorAll(".star");
+    let rating = 5;
+    stars.forEach(function (s) {
+      s.addEventListener("click", function () {
+        rating = parseInt(s.getAttribute("data-value"), 10);
+        stars.forEach(function (st, idx) { st.classList.toggle("on", idx < rating); });
+      });
+    });
+    reviewForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("rvName").value.trim();
+      const area = document.getElementById("rvArea").value.trim();
+      const msg = document.getElementById("rvMsg").value.trim();
+      const text =
+        "New Website Review!%0A%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Area/Project: " + encodeURIComponent(area || "Not provided") + "%0A" +
+        "Rating: " + rating + "/5 stars%0A" +
+        "Review: " + encodeURIComponent(msg);
+      window.open("https://wa.me/923368800085?text=" + text, "_blank");
+      const track = document.getElementById("tTrack");
+      if (track) {
+        const slide = document.createElement("div");
+        slide.className = "t-slide review-new";
+        slide.innerHTML =
+          '<div class="t-stars">' + "\u2605".repeat(rating) + '</div>' +
+          "<p>" + escapeHtml(msg) + "</p>" +
+          '<div class="t-author">' +
+          '<span class="t-avatar">' + escapeHtml(getInitials(name)) + "</span>" +
+          "<div><strong>" + escapeHtml(name) + "</strong><small>" + escapeHtml(area || "Website Visitor") + "</small></div>" +
+          "</div>";
+        track.insertBefore(slide, track.firstChild);
+      }
+      reviewForm.reset();
+      stars.forEach(function (s) { s.classList.add("on"); });
+      document.getElementById("reviewFormWrap").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  function escapeHtml(s) {
+    const d = document.createElement("div");
+    d.textContent = s;
+    return d.innerHTML;
+  }
+  function getInitials(n) {
+    return n.split(/\s+/).map(function (w) { return w.charAt(0); }).join("").toUpperCase().slice(0, 2);
   }
 
   const galleryItems = document.querySelectorAll(".proj-gallery figure");
