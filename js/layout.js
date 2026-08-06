@@ -1,4 +1,4 @@
-function renderHeader() {
+﻿function renderHeader() {
   var base = window.location.pathname.indexOf("/pages/") !== -1 ? "../" : "";
   document.getElementById("site-header").innerHTML = `
   <div class="topbar">
@@ -13,7 +13,7 @@ function renderHeader() {
           <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
           TikTok
         </a>
-        <a href="mailto:info@durranigroup.com" class="topbar-item social-link" title="Email">
+        <a href="mailto:durranigroupofcompanies9@gmail.com" class="topbar-item social-link" title="Email">
           <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           Email
         </a>
@@ -125,7 +125,7 @@ function renderFooter() {
           <a href="https://tiktok.com/@durrani.group.of.c" target="_blank" title="TikTok">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
           </a>
-          <a href="mailto:info@durranigroup.com" title="Email">
+          <a href="mailto:durranigroupofcompanies9@gmail.com" title="Email">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </a>
           <a href="https://wa.me/923368800085" target="_blank" title="WhatsApp">
@@ -159,10 +159,10 @@ function renderFooter() {
         <h4 data-i18n="fContactHead">Contact</h4>
         <ul class="footer-contact">
           <li><span class="material-icons" style="font-size:15px; vertical-align:-2px; margin-right:6px;">place</span>1st Floor, Shinwari Plaza, Nasir Bagh Road, Peshawar, KP, Pakistan</li>
-          <li><a href="https://wa.me/9234592025527" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Mazhar Durrani (Founder) &mdash; 0345 92025527</a></li>
-          <li><a href="https://wa.me/923159048363" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Mubashir Durrani (CEO) &mdash; 0315 9048363</a></li>
-          <li><a href="https://wa.me/923368800085" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Shahsaud (Office Manager) &mdash; 0336 8800085</a></li>
-          <li><a href="mailto:info@durranigroup.com"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M20 18h-2V9.25L12 13 6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20v12zM4 4h16v16H4V4z"/></svg>info@durranigroup.com</a></li>
+          <li><a href="https://wa.me/9234592025527" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>Mazhar Durrani (Founder) &mdash; 0345 92025527</a></li>
+          <li><a href="https://wa.me/923159048363" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>Mubashir Durrani (CEO) &mdash; 0315 9048363</a></li>
+          <li><a href="https://wa.me/923368800085" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>Shahsaud (Office Manager) &mdash; 0336 8800085</a></li>
+          <li><a href="mailto:durranigroupofcompanies9@gmail.com"><svg viewBox="52 42 88 66" width="15" height="15" style="vertical-align:-2px; margin-right:6px;"><path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6"/><path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15"/><path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2"/><path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92"/><path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2"/></svg>durranigroupofcompanies9@gmail.com</a></li>
           <li><a href="https://facebook.com/D.RealEstateofficial" target="_blank">f&nbsp; @D.RealEstateofficial</a></li>
         </ul>
       </div>

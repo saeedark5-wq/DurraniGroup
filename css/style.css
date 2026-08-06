@@ -556,6 +556,11 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
+.message-photo-fit img {
+  height: 560px;
+  object-fit: contain;
+  background: var(--bg-soft);
+}
 .message-name {
   position: absolute;
   left: 18px;
@@ -590,6 +595,152 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
   .about-img-small { right: 6px; bottom: -22px; }
   .about-badge { left: 6px; }
   .message-photo img { height: 420px; }
+}
+
+/* ---------- Team ---------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.team-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.35s;
+}
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+.team-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s;
+}
+.team-card:hover .team-photo img { transform: scale(1.05); }
+.team-body {
+  padding: 18px 22px 22px;
+  text-align: center;
+}
+.team-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.team-name-row h3 { font-size: 17px; margin-bottom: 0; }
+.team-phone {
+  color: var(--green-dark);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.team-phone:hover { color: var(--gold); border-color: var(--gold); }
+.team-body span {
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.team-meta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.team-meta .team-area {
+  font-size: 12.5px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.team-meta a {
+  font-size: 13px;
+  color: var(--green-dark);
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-all;
+}
+.team-meta a:hover { color: var(--gold); text-decoration: underline; }
+@media (max-width: 992px) {
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+
+/* ---------- Areas ---------- */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.area-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s;
+}
+.area-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.area-img {
+  height: 220px;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+.area-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s; }
+.area-card:hover .area-img img { transform: scale(1.05); }
+.area-img-ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.area-body { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.area-body h3 { font-size: 19px; }
+.area-body p { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+.area-badge {
+  margin-top: auto;
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+.area-card-placeholder .area-badge { margin-top: auto; }
+@media (max-width: 992px) {
+  .areas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .areas-grid { grid-template-columns: 1fr; }
 }
 
 /* ---------- Divisions ---------- */
@@ -831,6 +982,9 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
   font-size: 17px;
 }
 .contact-list strong { display: block; color: var(--ink); font-size: 14.5px; margin-bottom: 2px; }
+.contact-person strong { display: inline; margin-bottom: 0; }
+.contact-person a { white-space: nowrap; }
+.contact-person a::before { content: "\2014\00a0"; }
 .contact-list span, .contact-list a { color: var(--muted); font-size: 13.5px; }
 .contact-list a:hover { color: var(--green); }
 .contact-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
