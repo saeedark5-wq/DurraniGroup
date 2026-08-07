@@ -1,0 +1,112 @@
+{
+  "projects": [
+    {
+      "id": "malik-town-chs",
+      "name": "Malik Town CHS",
+      "location": "Peshawar, KP",
+      "description": "Cooperative housing society with modern blocks and easy 3-year installment plans.",
+      "tag": "New Launch",
+      "image": "images/Malik Town Durrani Block Payment Plan 1.jfif",
+      "page": "pages/malik-town.html",
+      "whatsappText": "",
+      "gallery": []
+    },
+    {
+      "id": "durrani-enclave",
+      "name": "Durrani Enclave",
+      "location": "Peshawar, KP",
+      "description": "A premium residential enclave with flexible 3-year installment plans.",
+      "tag": "Popular",
+      "image": "Durrani Enclave office.jfif",
+      "page": "pages/durrani-enclave.html",
+      "whatsappText": "",
+      "gallery": [
+        "Durrani Enclave office.jfif",
+        "images/Durrani Enclave 3 years installemts.jfif",
+        "images/Durrani Enclaves.jfif",
+        "Durrani Enclave office entry.jfif",
+        "work in progress.jfif"
+      ]
+    },
+    {
+      "id": "fr-heights",
+      "name": "FR Heights",
+      "location": "Peshawar, KP",
+      "description": "Modern residential development delivering contemporary living spaces.",
+      "tag": "Premium",
+      "image": "images/FR Heights.jfif",
+      "page": "pages/regi-model-town.html",
+      "whatsappText": "",
+      "gallery": [
+        "images/FR Heights.jfif",
+        "images/FR Heights a.jfif"
+      ]
+    },
+    {
+      "id": "durrani-heights",
+      "name": "Durrani Heights",
+      "location": "Peshawar, KP",
+      "description": "Elevated living with premium residential and investment options.",
+      "tag": "Premium",
+      "image": "images/Durrani Heights.jfif",
+      "page": "pages/regi-model-town.html",
+      "whatsappText": "",
+      "gallery": []
+    },
+    {
+      "id": "regi-model-town",
+      "name": "Regi Model Town",
+      "location": "Regi, Peshawar",
+      "description": "Prime plots in the fastest-growing city district — ideal for investment.",
+      "tag": "High Growth",
+      "image": "images/Map.jfif",
+      "page": "pages/regi-model-town.html",
+      "whatsappText": "",
+      "gallery": []
+    },
+    {
+      "id": "professor-model-town",
+      "name": "Professor Model Town",
+      "location": "Peshawar, KP",
+      "description": "A PDA approved gated community on Main Nasir Bagh Road, right next to DHA Peshawar and Regi Lalma — with built houses and active utilities.",
+      "tag": "PDA Approved",
+      "image": "images/Professor Mode; Town.jfif",
+      "page": "pages/projects.html",
+      "whatsappText": "",
+      "gallery": []
+    },
+    {
+      "id": "durrani-residency",
+      "name": "Durrani Residency CHS",
+      "location": "Peshawar, KP",
+      "description": "Cooperative housing society built for modern families and investors.",
+      "tag": "Available",
+      "image": "images/FR Heights.jfif",
+      "page": "pages/durrani-residency.html",
+      "whatsappText": "",
+      "gallery": []
+    },
+    {
+      "id": "kalam-housing",
+      "name": "Kalam Housing Project",
+      "location": "Kalam, Swat",
+      "description": "Holiday homes and resort plots in the beautiful valley of Kalam.",
+      "tag": "Scenic",
+      "image": "images/Durrani Heights.jfif",
+      "page": "pages/kalam-housing.html",
+      "whatsappText": "",
+      "gallery": []
+    },
+    {
+      "id": "sheikh-yaseen-town",
+      "name": "Sheikh Yaseen Town",
+      "location": "Peshawar, KP",
+      "description": "Affordable residential plots with full documentation support.",
+      "tag": "Affordable",
+      "image": "images/Yaseen Town.jfif",
+      "page": "pages/sheikh-yaseen-town.html",
+      "whatsappText": "",
+      "gallery": []
+    }
+  ]
+}

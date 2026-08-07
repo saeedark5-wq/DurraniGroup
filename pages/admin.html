@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Durrani Group of Companies</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f3f1ea; color: #1c1c1c; min-height: 100vh; }
+    a { color: #b18a20; text-decoration: none; }
+
+    .admin-shell { max-width: 960px; margin: 0 auto; padding: 28px 18px 60px; }
+    .admin-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
+    .admin-top h1 { font-size: 22px; letter-spacing: 0.3px; }
+    .admin-top h1 span { color: #b18a20; }
+    .admin-top .user-chip { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: #666; }
+    .admin-top .user-chip strong { color: #141c1c; }
+
+    .card { background: #fff; border: 1px solid #e5e0d2; border-radius: 14px; padding: 26px; margin-bottom: 20px; }
+    .card h2 { font-size: 17px; margin-bottom: 4px; }
+    .card .sub { font-size: 13px; color: #7a6f5d; }
+
+    .form-group { margin-bottom: 16px; display: flex; flex-direction: column; }
+    .form-group label { font-size: 12.5px; font-weight: 600; color: #333; margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 11px 13px; border: 1px solid #d8d2c2; border-radius: 9px; font-size: 14px;
+      font-family: inherit; background: #fff; color: #141414;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #b18a20; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .btn { display: inline-block; padding: 11px 20px; border-radius: 9px; border: 0; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all .2s; }
+    .btn-primary { background: #b18a20; color: #fff; }
+    .btn-primary:hover { background: #96731a; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; border: 1px solid #d8d2c2; color: #555; }
+    .btn-ghost:hover { background: #f3f1ea; }
+    .btn-danger { background: #c0392b; color: #fff; }
+
+    .msg { padding: 11px 14px; border-radius: 9px; font-size: 13.5px; margin: 14px 0; display: none; }
+    .msg.ok { display: block; background: #eaf7ee; color: #1d7a37; border: 1px solid #bfe6cc; }
+    .msg.err { display: block; background: #fdecea; color: #a4251a; border: 1px solid #f5c6c2; }
+    .msg.info { display: block; background: #eef2fb; color: #1c4fb0; border: 1px solid #c9d8f2; }
+
+    .login-box { max-width: 400px; margin: 10vh auto 0; }
+    .login-box .card { padding: 34px; }
+    .login-box .logo { text-align: center; margin-bottom: 18px; }
+    .login-box .logo img { width: 86px; height: 86px; object-fit: cover; border-radius: 50%; border: 2px solid #b18a20; }
+    .login-box h2 { text-align: center; font-size: 19px; margin-bottom: 2px; }
+    .login-box p { text-align: center; font-size: 13px; color: #777; margin-bottom: 18px; }
+
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+    .tab { padding: 10px 18px; border-radius: 999px; border: 1px solid #d8d2c2; background: #fff; color: #555; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .tab.active { background: #b18a20; border-color: #b18a20; color: #fff; }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .file-preview { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .file-preview .thumb { width: 72px; height: 72px; border-radius: 10px; overflow: hidden; border: 1px solid #ddd; position: relative; }
+    .file-preview .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .file-preview .thumb button { position: absolute; top: 2px; right: 2px; background: rgba(0,0,0,.6); color: #fff; border: 0; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; cursor: pointer; line-height: 1; }
+
+    .list-item { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #eee; }
+    .list-item:last-child { border-bottom: 0; }
+    .list-item img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; }
+    .list-item .li-body { flex: 1; }
+    .list-item .li-body strong { font-size: 14.5px; display: block; }
+    .list-item .li-body span { font-size: 12.5px; color: #777; }
+
+    .hashint { font-size: 10.5px; color: #b18a20; font-weight: 600; }
+    .muted { font-size: 12px; color: #999; }
+    .back-link { display: inline-block; margin-top: 18px; font-size: 13.5px; }
+    .status-row { font-size: 12.5px; color: #666; margin: 6px 0; }
+    .status-row b { color: #141414; }
+    @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="admin-shell">
+
+    <!-- LOGIN VIEW -->
+    <div id="loginView" class="login-box">
+      <div class="card">
+        <div class="logo">
+          <img src="../logo.jfif" alt="Durrani Group">
+        </div>
+        <h2>Admin Login</h2>
+        <p>Durrani Group of Companies</p>
+        <div class="form-group">
+          <label for="loginUser">Username</label>
+          <input type="text" id="loginUser" autocomplete="username" placeholder="admin">
+        </div>
+        <div class="form-group">
+          <label for="loginPass">Password</label>
+          <input type="password" id="loginPass" autocomplete="current-password" placeholder="••••••••">
+        </div>
+        <button class="btn btn-primary" style="width:100%;" id="loginBtn">Sign In</button>
+        <div class="msg" id="loginMsg"></div>
+        <a href="../index.html" class="back-link">← Back to website</a>
+      </div>
+    </div>
+
+    <!-- PANEL VIEW -->
+    <div id="panelView" style="display:none;">
+      <div class="admin-top">
+        <h1>Durrani <span>Admin</span></h1>
+        <div class="user-chip">
+          <strong id="helloUser">admin</strong>
+          <a href="../index.html" class="btn btn-ghost btn-see-site">View Site</a>
+          <button class="btn btn-danger" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <div class="msg" id="mainMsg"></div>
+
+      <div class="tabs">
+        <button class="tab active" data-panel="projects">Projects</button>
+        <button class="tab" data-panel="images">Add Photos</button>
+        <button class="tab" data-panel="team">Team / Employees</button>
+        <button class="tab" data-panel="preview">Preview</button>
+      </div>
+
+      <!-- PROJECTS PANEL -->
+      <div class="panel active" id="panel-projects">
+        <div class="card">
+          <h2>Add a New Project</h2>
+          <p class="sub">Create a project card shown on the website home page and Projects page.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prName">Project Name</label>
+              <input type="text" id="prName" placeholder="e.g. Durrani Enclave">
+            </div>
+            <div class="form-group">
+              <label for="prTag">Badge / Tag</label>
+              <input type="text" id="prTag" placeholder="e.g. New Launch">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prLocation">Location</label>
+              <input type="text" id="prLocation" placeholder="e.g. Peshawar, KP">
+            </div>
+            <div class="form-group">
+              <label for="prPage">Detail Page (optional)</label>
+              <input type="text" id="prPage" placeholder="pages/projects.html or leave empty">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="prDesc">Short Description</label>
+            <textarea id="prDesc" rows="2" placeholder="One or two sentences about the project..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="prImage">Cover Image</label>
+            <input type="file" id="prImage" accept="image/*">
+            <div class="file-preview" id="prImagePreview"></div>
+          </div>
+          <button class="btn btn-primary" id="addProjectBtn" style="margin-top:6px;">Add Project</button>
+        </div>
+
+        <div class="card">
+          <h2>Current Projects</h2>
+          <div id="projectsList"></div>
+        </div>
+      </div>
+
+      <!-- IMAGES PANEL -->
+      <div class="panel" id="panel-images">
+        <div class="card">
+          <h2>Add Photos to an Existing Project</h2>
+          <p class="sub">Uploaded photos are added to the chosen project's gallery and the site Gallery page.</p>
+          <div class="form-group">
+            <label for="imgProject">Select Project</label>
+            <select id="imgProject"></select>
+          </div>
+          <div class="form-group">
+            <label for="imgFiles">Choose Images (can pick multiple)</label>
+            <input type="file" id="imgFiles" accept="image/*" multiple>
+            <div class="file-preview" id="imgPreview"></div>
+          </div>
+          <button class="btn btn-primary" id="addImagesBtn">Upload Images to Project</button>
+        </div>
+      </div>
+
+      <!-- TEAM PANEL -->
+      <div class="panel" id="panel-team">
+        <div class="card">
+          <h2>Add an Employee / Team Member</h2>
+          <p class="sub">New employee appears in the "Our Team" section.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tmName">Full Name</label>
+              <input type="text" id="tmName" placeholder="e.g. Ahmed Khan">
+            </div>
+            <div class="form-group">
+              <label for="tmRole">Role / Designation</label>
+              <input type="text" id="tmRole" placeholder="e.g. Sales Executive">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tmArea">Area of Work</label>
+            <input type="text" id="tmArea" placeholder="e.g. Regi Model Town &amp; DHA Peshawar">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tmMobile">Mobile Number</label>
+              <input type="text" id="tmMobile" placeholder="e.g. +92 3xx xxxxxxx">
+            </div>
+            <div class="form-group">
+              <label for="tmEmail">Email ID</label>
+              <input type="email" id="tmEmail" placeholder="e.g.name@gmail.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tmPhoto">Photo (optional)</label>
+            <input type="file" id="tmPhoto" accept="image/*">
+            <div class="file-preview" id="tmPhotoPreview"></div>
+          </div>
+          <button class="btn btn-primary" id="addTeamBtn">Add Employee</button>
+        </div>
+
+        <div class="card">
+          <h2>Current Team</h2>
+          <div id="teamList"></div>
+        </div>
+      </div>
+
+      <!-- PREVIEW PANEL -->
+      <div class="panel" id="panel-preview">
+        <div class="card">
+          <h2>Live Preview</h2>
+          <p class="sub">Everything here is what the public website shows. Open the site in another tab to view changes live.</p>
+          <a href="../index.html" class="btn btn-primary" style="margin-top:14px;">Open Website</a>
+          <div class="status-row" style="margin-top:18px;">Projects: <b id="previewProjects">0</b></div>
+          <div class="status-row">Team Members: <b id="previewMembers">0</b></div>
+          <div class="status-row">Gallery Images: <b id="previewGallery">0</b></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>

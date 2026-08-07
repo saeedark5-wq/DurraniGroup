@@ -1,0 +1,74 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name": "Shahsaud",
+      "role": "General Manager",
+      "area": "Head Office — Nasir Bagh Road",
+      "mobile": "+92 336 8800085",
+      "whatsapp": "923368800085",
+      "email": "durranigroupofcompanies9@gmail.com",
+      "photo": "Ofice Manager.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Bilal Durrani",
+      "role": "Property Consultant / Sales Executive",
+      "area": "DHA Peshawar, Regi Model Town, Sheikh Yaseen, Professor Model & Media Colony",
+      "mobile": "+92 337 9202527",
+      "whatsapp": "923379202527",
+      "email": "bilaldurrani2009@gmail.com",
+      "photo": "Bilal Durrani.jfif"
+    },
+    {
+      "id": 3,
+      "name": "Shah Fahad",
+      "role": "Sales Manager",
+      "area": "Regi Model Town, DHA Peshawar, Sheikh Yaseen Town, Durrani Media Colony & Durrani Enclave",
+      "mobile": "+92 314 9796809",
+      "whatsapp": "923149796809",
+      "email": "fahad96809@gmail.com",
+      "photo": "Shah Fahad Sales Manager.jfif"
+    },
+    {
+      "id": 4,
+      "name": "Muhammad Ali",
+      "role": "Property Consultant / Sales Executive",
+      "area": "Sheikh Yaseen Town, Professor Model Town, DHA Peshawar & Durrani Enclave",
+      "mobile": "+92 333 5012080",
+      "whatsapp": "923335012080",
+      "email": "m.ali565734@gmail.com",
+      "photo": "Muhammad Ali.jfif"
+    },
+    {
+      "id": 5,
+      "name": "Mujahid Khan",
+      "role": "Sales Executive",
+      "area": "Regi Model Town, Professor Model Town, Sheikh Yaseen Town & DHA Peshawar",
+      "mobile": "+92 334 1440001",
+      "whatsapp": "923341440001",
+      "email": "mujee334pk@gmail.com",
+      "photo": "Mujahid khan.jfif"
+    },
+    {
+      "id": 6,
+      "name": "Malik Saad Khan",
+      "role": "Sales Executive",
+      "area": "Regi Model Town & DHA Peshawar",
+      "mobile": "+92 333 3367310",
+      "whatsapp": "9233333367310",
+      "email": "malaksaad266@gmail.com",
+      "photo": "Malik Saad Khan Sales executive.jfif"
+    },
+    {
+      "id": 7,
+      "name": "Syed Umair",
+      "role": "Sales Executive",
+      "area": "Regi Model Town, Professor Model Town, Hayatabad & Durrani Enclave Peshawar",
+      "mobile": "+92 317 5988914",
+      "whatsapp": "923175988914",
+      "email": "syedumairrealtor@gmail.com",
+      "photo": "Syed Umair.jfif"
+    }
+  ]
+}

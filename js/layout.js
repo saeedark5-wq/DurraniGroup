@@ -17,6 +17,10 @@
           <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           Email
         </a>
+        <a href="${base}pages/admin.html" class="topbar-item social-link admin-link" title="Admin Login">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 1a9 9 0 0 1 9 9v6a4 4 0 0 1-4 4h-2a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h4V10a7 7 0 0 0-14 0v1h4v2a2 2 0 0 1-2 2H4c-1.1 0-2 .9-2 2v3a4 4 0 0 0 4 4h2a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H8v1a6 6 0 1 1 12 0v1h-2a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h2a4 4 0 0 0 4-4v-6a9 9 0 0 0-6-8.5A9 9 0 0 0 12 1z"/></svg>
+          Admin
+        </a>
       </div>
     </div>
   </div>

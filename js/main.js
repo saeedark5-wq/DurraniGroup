@@ -203,9 +203,31 @@ document.addEventListener("DOMContentLoaded", function () {
     return n.split(/\s+/).map(function (w) { return w.charAt(0); }).join("").toUpperCase().slice(0, 2);
   }
 
-  const galleryItems = document.querySelectorAll(".proj-gallery figure");
-  if (galleryItems.length) {
-    const lightbox = document.createElement("div");
+  // Delegate-based gallery lightbox (also works for figures rendered dynamically)
+  let lightbox = null;
+  let mediaBox = null;
+  let lbItems = [];
+  let current = 0;
+
+  function collectGallery(fig) {
+    const wrap = fig.closest(".proj-gallery") || document.body;
+    return Array.prototype.map.call(wrap.querySelectorAll("figure"), function (f) {
+      if (f.classList.contains("pdf-item")) {
+        const a = f.querySelector("a.pdf-link");
+        return a ? { type: "pdf", src: a.href } : null;
+      }
+      if (f.classList.contains("video-item")) {
+        const v = f.querySelector("video");
+        return v ? { type: "video", src: v.querySelector("source") ? v.querySelector("source").src : v.src } : null;
+      }
+      const img = f.querySelector("img");
+      return img ? { type: "img", src: img.src } : null;
+    }).filter(Boolean);
+  }
+
+  function ensureLightbox() {
+    if (lightbox) return;
+    lightbox = document.createElement("div");
     lightbox.className = "lightbox";
     lightbox.innerHTML =
       '<button class="lb-close" aria-label="Close"><span class="material-icons">close</span></button>' +
@@ -213,70 +235,61 @@ document.addEventListener("DOMContentLoaded", function () {
       '<button class="lb-next" aria-label="Next"><span class="material-icons">chevron_right</span></button>' +
       '<div class="lb-media"></div>';
     document.body.appendChild(lightbox);
-    const mediaBox = lightbox.querySelector(".lb-media");
-    let current = 0;
-    const items = Array.prototype.map.call(galleryItems, function (fig) {
-      if (fig.classList.contains("pdf-item")) {
-        const a = fig.querySelector("a.pdf-link");
-        return a ? { type: "pdf", src: a.href } : null;
-      }
-      if (fig.classList.contains("video-item")) {
-        const v = fig.querySelector("video");
-        return v ? { type: "video", src: v.querySelector("source") ? v.querySelector("source").src : v.src } : null;
-      }
-      const img = fig.querySelector("img");
-      return img ? { type: "img", src: img.src } : null;
-    }).filter(Boolean);
+    mediaBox = lightbox.querySelector(".lb-media");
 
-    function show(i) {
-      current = (i + items.length) % items.length;
-      const it = items[current];
-      if (it.type === "video") {
-        mediaBox.innerHTML = '<video src="' + it.src + '" controls autoplay></video>';
-      } else if (it.type === "pdf") {
-        mediaBox.innerHTML = '<iframe src="' + it.src + '" style="width:100%; height:80vh; border:0; border-radius:8px; background:#fff;"></iframe>';
-      } else {
-        mediaBox.innerHTML = '<img src="' + it.src + '" alt="Gallery image">';
-      }
-    }
-    galleryItems.forEach(function (fig, idx) {
-      fig.addEventListener("click", function () {
-        show(idx);
-        lightbox.classList.add("open");
-        document.body.style.overflow = "hidden";
-      });
-    });
-    lightbox.querySelector(".lb-close").addEventListener("click", function () {
+    function closeLB() {
       lightbox.classList.remove("open");
       document.body.style.overflow = "";
-      mediaBox.innerHTML = "";
-    });
+      if (mediaBox) mediaBox.innerHTML = "";
+    }
+    lightbox.querySelector(".lb-close").addEventListener("click", closeLB);
     lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) {
-        lightbox.classList.remove("open");
-        document.body.style.overflow = "";
-        mediaBox.innerHTML = "";
-      }
+      if (e.target === lightbox) closeLB();
     });
-    lightbox.querySelector(".lb-prev").addEventListener("click", function () { show(current - 1); });
-    lightbox.querySelector(".lb-next").addEventListener("click", function () { show(current + 1); });
+    lightbox.querySelector(".lb-prev").addEventListener("click", function () { showLB(current - 1); });
+    lightbox.querySelector(".lb-next").addEventListener("click", function () { showLB(current + 1); });
     document.addEventListener("keydown", function (e) {
       if (!lightbox.classList.contains("open")) return;
-      if (e.key === "Escape") lightbox.querySelector(".lb-close").click();
-      if (e.key === "ArrowLeft") show(current - 1);
-      if (e.key === "ArrowRight") show(current + 1);
+      if (e.key === "Escape") closeLB();
+      if (e.key === "ArrowLeft") showLB(current - 1);
+      if (e.key === "ArrowRight") showLB(current + 1);
     });
   }
 
+  function showLB(i) {
+    if (!lbItems.length) return;
+    current = (i + lbItems.length) % lbItems.length;
+    const it = lbItems[current];
+    if (!mediaBox) return;
+    if (it.type === "video") {
+      mediaBox.innerHTML = '<video src="' + it.src + '" controls autoplay></video>';
+    } else if (it.type === "pdf") {
+      mediaBox.innerHTML = '<iframe src="' + it.src + '" style="width:100%; height:80vh; border:0; border-radius:8px; background:#fff;"></iframe>';
+    } else {
+      mediaBox.innerHTML = '<img src="' + it.src + '" alt="Gallery image">';
+    }
+  }
+
+  document.addEventListener("click", function (e) {
+    const fig = e.target.closest ? e.target.closest(".proj-gallery figure") : null;
+    if (!fig || e.target.closest(".lb-close, .lb-prev, .lb-next")) return;
+    ensureLightbox();
+    lbItems = collectGallery(fig);
+    const idx = Array.prototype.indexOf.call(fig.parentNode.children, fig);
+    current = (idx + lbItems.length) % lbItems.length;
+    showLB(current);
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+
   const galleryFilter = document.getElementById("galleryFilter");
   if (galleryFilter) {
-    const items = document.querySelectorAll(".gal-item");
     galleryFilter.querySelectorAll(".gal-filter").forEach(function (btn) {
       btn.addEventListener("click", function () {
         galleryFilter.querySelectorAll(".gal-filter").forEach(function (b) { b.classList.remove("active"); });
         btn.classList.add("active");
         const filter = btn.getAttribute("data-filter");
-        items.forEach(function (it) {
+        document.querySelectorAll(".gal-item").forEach(function (it) {
           if (filter === "all" || it.getAttribute("data-cat") === filter) {
             it.classList.remove("hidden");
           } else {
