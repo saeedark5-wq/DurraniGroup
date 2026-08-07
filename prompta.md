@@ -32,7 +32,7 @@ CONTACT:
 
 Mazhar Durrani WhatsApp:
 
-+92 345 92025527
++92 328 8999919
 
 Mubashir Durrani WhatsApp:
 

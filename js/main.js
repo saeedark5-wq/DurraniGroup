@@ -216,6 +216,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const mediaBox = lightbox.querySelector(".lb-media");
     let current = 0;
     const items = Array.prototype.map.call(galleryItems, function (fig) {
+      if (fig.classList.contains("pdf-item")) {
+        const a = fig.querySelector("a.pdf-link");
+        return a ? { type: "pdf", src: a.href } : null;
+      }
       if (fig.classList.contains("video-item")) {
         const v = fig.querySelector("video");
         return v ? { type: "video", src: v.querySelector("source") ? v.querySelector("source").src : v.src } : null;
@@ -229,6 +233,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const it = items[current];
       if (it.type === "video") {
         mediaBox.innerHTML = '<video src="' + it.src + '" controls autoplay></video>';
+      } else if (it.type === "pdf") {
+        mediaBox.innerHTML = '<iframe src="' + it.src + '" style="width:100%; height:80vh; border:0; border-radius:8px; background:#fff;"></iframe>';
       } else {
         mediaBox.innerHTML = '<img src="' + it.src + '" alt="Gallery image">';
       }

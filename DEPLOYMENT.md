@@ -85,4 +85,4 @@ Search for **durranigroup.com** and buy it. If taken, alternatives: `durranigrou
 | Images/PDFs not loading | Re-upload the full folder (keep folder structure — don't flatten) |
 | Videos too slow | They're served as-is; consider compressing the .mp4 files before upload |
 | Language not switching | Clear browser cache; `i18n.js` must be next to `layout.js` in the `js/` folder |
-| Forms don't open WhatsApp | Check the `wa.me/9234592025527` links — number must include country code without `+` |
+| Forms don't open WhatsApp | Check the `wa.me/923288999919` links — number must include country code without `+` |

@@ -633,10 +633,10 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 }
 .team-name-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 6px;
   margin-bottom: 6px;
 }
 .team-name-row h3 { font-size: 17px; margin-bottom: 0; }
@@ -1010,9 +1010,10 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
   font-size: 17px;
 }
 .contact-list strong { display: block; color: var(--ink); font-size: 14.5px; margin-bottom: 2px; }
-.contact-person strong { display: inline; margin-bottom: 0; }
+.contact-person { display: flex; flex-direction: column; align-items: flex-start; }
+.contact-person strong { display: block; margin-bottom: 2px; }
 .contact-person a { white-space: nowrap; }
-.contact-person a::before { content: "\2014\00a0"; }
+.contact-person a::before { content: ""; }
 .contact-list span, .contact-list a { color: var(--muted); font-size: 13.5px; }
 .contact-list a:hover { color: var(--green); }
 .contact-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
