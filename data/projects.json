@@ -87,17 +87,6 @@
       "gallery": []
     },
     {
-      "id": "kalam-housing",
-      "name": "Kalam Housing Project",
-      "location": "Kalam, Swat",
-      "description": "Holiday homes and resort plots in the beautiful valley of Kalam.",
-      "tag": "Scenic",
-      "image": "images/Durrani Heights.jfif",
-      "page": "pages/kalam-housing.html",
-      "whatsappText": "",
-      "gallery": []
-    },
-    {
       "id": "sheikh-yaseen-town",
       "name": "Sheikh Yaseen Town",
       "location": "Peshawar, KP",

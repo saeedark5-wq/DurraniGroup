@@ -3,7 +3,7 @@
   document.getElementById("site-header").innerHTML = `
   <div class="topbar">
     <div class="container topbar-inner">
-      <span class="topbar-item"><span class="material-icons" style="font-size:13px; vertical-align:-2px; margin-right:6px;">place</span>1st Floor, Shinwari Plaza, Nasir Bagh Road, Peshawar</span>
+      <a href="https://www.google.com/maps/search/?api=1&query=Shinwari+Plaza%2C+Nasir+Bagh+Road%2C+Peshawar" target="_blank" rel="noopener" class="topbar-item" title="Open in Google Maps"><span class="material-icons" style="font-size:13px; vertical-align:-2px; margin-right:6px;">place</span>1st Floor, Shinwari Plaza, Nasir Bagh Road, Peshawar</a>
       <div class="topbar-links">
         <a href="https://facebook.com/D.RealEstateofficial" target="_blank" class="topbar-item social-link" title="Facebook">
           <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13.5 21v-7h2.4l.36-2.8H13.5V9.4c0-.81.22-1.36 1.38-1.36h1.48V5.55c-.26-.03-1.13-.11-2.15-.11-2.13 0-3.59 1.3-3.59 3.69v2.06H8.2V14h2.42v7h2.88z"/></svg>
@@ -55,7 +55,6 @@
               <li><a href="${base}pages/malik-town.html" data-i18n="navMalik">Malik Town Housing Society</a></li>
               <li><a href="${base}pages/durrani-enclave.html" data-i18n="navEnclave">Durrani Enclave</a></li>
               <li><a href="${base}pages/durrani-residency.html" data-i18n="navResidency">Durrani Residency CHS</a></li>
-              <li><a href="${base}pages/kalam-housing.html" data-i18n="navKalam">Kalam Housing Project</a></li>
               <li><a href="${base}pages/regi-model-town.html" data-i18n="navRegi">Regi Model Town</a></li>
               <li><a href="${base}pages/sheikh-yaseen-town.html" data-i18n="navSheikh">Sheikh Yaseen Town</a></li>
             </ul>
@@ -154,7 +153,6 @@ function renderFooter() {
           <li><a href="${base}pages/malik-town.html" data-i18n="navMalik">Malik Town Housing Society</a></li>
           <li><a href="${base}pages/durrani-enclave.html" data-i18n="navEnclave">Durrani Enclave</a></li>
           <li><a href="${base}pages/durrani-residency.html" data-i18n="navResidency">Durrani Residency CHS</a></li>
-          <li><a href="${base}pages/kalam-housing.html" data-i18n="navKalam">Kalam Housing Project</a></li>
           <li><a href="${base}pages/regi-model-town.html" data-i18n="navRegi">Regi Model Town</a></li>
           <li><a href="${base}pages/sheikh-yaseen-town.html" data-i18n="navSheikh">Sheikh Yaseen Town</a></li>
         </ul>

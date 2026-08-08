@@ -14,8 +14,16 @@
 
     .admin-shell { max-width: 960px; margin: 0 auto; padding: 28px 18px 60px; }
     .admin-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
-    .admin-top h1 { font-size: 22px; letter-spacing: 0.3px; }
+    .admin-top h1 { font-size: 22px; letter-spacing: 0.3px; display: flex; align-items: center; gap: 12px; }
     .admin-top h1 span { color: #b18a20; }
+    .admin-title-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 11px;
+      background: linear-gradient(135deg, #b18a20 0%, #8a6a15 100%);
+      box-shadow: 0 6px 16px rgba(177,138,32,.35), inset 0 2px 4px rgba(255,255,255,.22);
+      flex-shrink: 0;
+    }
+    .admin-title-icon svg { width: 22px; height: 22px; }
     .admin-top .user-chip { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: #666; }
     .admin-top .user-chip strong { color: #141c1c; }
 
@@ -46,7 +54,14 @@
     .login-box { max-width: 400px; margin: 10vh auto 0; }
     .login-box .card { padding: 34px; }
     .login-box .logo { text-align: center; margin-bottom: 18px; }
-    .login-box .logo img { width: 86px; height: 86px; object-fit: cover; border-radius: 50%; border: 2px solid #b18a20; }
+    .login-box .logo .admin-lock {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 92px; height: 92px; border-radius: 50%;
+      background: linear-gradient(135deg, #b18a20 0%, #8a6a15 100%);
+      box-shadow: 0 10px 28px rgba(177,138,32,.35), inset 0 2px 4px rgba(255,255,255,.25);
+      border: 3px solid #fff;
+    }
+    .login-box .logo .admin-lock svg { width: 46px; height: 46px; }
     .login-box h2 { text-align: center; font-size: 19px; margin-bottom: 2px; }
     .login-box p { text-align: center; font-size: 13px; color: #777; margin-bottom: 18px; }
 
@@ -74,7 +89,18 @@
     .back-link { display: inline-block; margin-top: 18px; font-size: 13.5px; }
     .status-row { font-size: 12.5px; color: #666; margin: 6px 0; }
     .status-row b { color: #141414; }
-    @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+    .tab-wrap { overflow-x: auto; }
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .admin-shell { padding: 20px 12px 48px; }
+      .card { padding: 20px 16px; }
+      .list-item { flex-wrap: wrap; gap: 10px; }
+      .list-item img { width: 48px; height: 48px; }
+      .tab { padding: 9px 14px; font-size: 13px; white-space: nowrap; }
+      .admin-top h1 { font-size: 19px; }
+      .login-box { margin: 5vh auto 0; }
+      .login-box .card { padding: 26px 20px; }
+    }
   </style>
 </head>
 <body>
@@ -84,7 +110,14 @@
     <div id="loginView" class="login-box">
       <div class="card">
         <div class="logo">
-          <img src="../logo.jfif" alt="Durrani Group">
+          <span class="admin-lock" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3z"/>
+              <rect x="9" y="10.5" width="6" height="4.5" rx="1"/>
+              <path d="M10 10.5V9a2 2 0 1 1 4 0v1.5"/>
+              <circle cx="12" cy="12.75" r="0.9" fill="#fff" stroke="none"/>
+            </svg>
+          </span>
         </div>
         <h2>Admin Login</h2>
         <p>Durrani Group of Companies</p>
@@ -105,7 +138,17 @@
     <!-- PANEL VIEW -->
     <div id="panelView" style="display:none;">
       <div class="admin-top">
-        <h1>Durrani <span>Admin</span></h1>
+        <h1 class="admin-title">
+          <span class="admin-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3z"/>
+              <rect x="9" y="10.5" width="6" height="4.5" rx="1"/>
+              <path d="M10 10.5V9a2 2 0 1 1 4 0v1.5"/>
+              <circle cx="12" cy="12.75" r="0.9" fill="#fff" stroke="none"/>
+            </svg>
+          </span>
+          Durrani <span>Admin</span>
+        </h1>
         <div class="user-chip">
           <strong id="helloUser">admin</strong>
           <a href="../index.html" class="btn btn-ghost btn-see-site">View Site</a>
@@ -115,7 +158,7 @@
 
       <div class="msg" id="mainMsg"></div>
 
-      <div class="tabs">
+      <div class="tabs tab-wrap">
         <button class="tab active" data-panel="projects">Projects</button>
         <button class="tab" data-panel="images">Add Photos</button>
         <button class="tab" data-panel="team">Team / Employees</button>
