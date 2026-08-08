@@ -594,7 +594,8 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 .message-sign { font-weight: 700; color: var(--ink); font-family: var(--font-head); font-size: 17px; }
 @media (max-width: 992px) {
   .about-grid, .message-grid { grid-template-columns: 1fr; gap: 50px; }
-  .message-reverse .message-photo { order: 0; }
+  .message-grid .message-photo { order: 1; }
+  .message-grid .message-text { order: 2; }
   .about-img-small { right: 6px; bottom: -22px; }
   .about-badge { left: 6px; }
   .message-photo img { height: 420px; }
