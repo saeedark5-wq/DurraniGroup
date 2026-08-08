@@ -175,6 +175,9 @@ function renderFooter() {
         <p class="tagline-text" data-i18n="tagline">Building Trust. Creating Futures.</p>
       </div>
     </div>
+    <div class="footer-dev">
+      <p>Website developed by <a href="tel:+971563217816">Muhammad Saeed</a> &mdash; Ark Developer &mdash; <a href="tel:+971563217816">+971 56 321 7816</a></p>
+    </div>
   </footer>`;
     if (!document.getElementById("waFloat")) {
     const wa = document.createElement("a");

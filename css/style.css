@@ -280,6 +280,9 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 .footer-social a:hover { background: var(--green); transform: translateY(-3px); }
 .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 20px 0; }
 .footer-bottom .container { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 13.5px; }
+.footer-dev { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 14px 24px; text-align: center; font-size: 13px; color: #a89d72; }
+.footer-dev a { color: #e3c455; font-weight: 600; }
+.footer-dev a:hover { text-decoration: underline; }
 .tagline-text { color: var(--green); font-weight: 600; letter-spacing: 0.5px; }
 
 /* ---------- Hero ---------- */
