@@ -1,0 +1,12 @@
+{
+  "name": "durrani-group-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Durrani Group of Companies - official website (static site with Vercel serverless admin API)",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "^0.27.0"
+  }
+}
