@@ -281,7 +281,7 @@ function handleApi(req, res, urlPath) {
         area: parsed.area || "Regi Model Town, Peshawar",
         mobile: parsed.mobile || "",
         whatsapp: wa || "",
-        photo: parsed.photo || "images/Founder.jfif",
+        photo: parsed.photo || "Mazhar Founder.jfif",
         email: parsed.email || ""
       };
       file.members.unshift(member);

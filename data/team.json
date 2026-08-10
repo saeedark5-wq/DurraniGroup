@@ -2,7 +2,7 @@
   "members": [
     {
       "id": 1,
-      "name": "Shahsaud",
+      "name": "Muhammad Shahsaud",
       "role": "General Manager",
       "area": "Head Office — Nasir Bagh Road",
       "mobile": "+92 336 8800085",
@@ -18,7 +18,7 @@
       "mobile": "+92 337 9202527",
       "whatsapp": "923379202527",
       "email": "bilaldurrani2009@gmail.com",
-      "photo": "Bilal Durrani.jfif"
+      "photo": "Bilal Durrani f.jfif"
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "mobile": "+92 314 9796809",
       "whatsapp": "923149796809",
       "email": "fahad96809@gmail.com",
-      "photo": "Shah Fahad Sales Manager.jfif"
+      "photo": "Shah fahad sales.jfif"
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "mobile": "+92 333 5012080",
       "whatsapp": "923335012080",
       "email": "m.ali565734@gmail.com",
-      "photo": "Muhammad Ali.jfif"
+      "photo": "Muhammad ALi S.jfif"
     },
     {
       "id": 5,
@@ -48,7 +48,7 @@
       "mobile": "+92 334 1440001",
       "whatsapp": "923341440001",
       "email": "mujee334pk@gmail.com",
-      "photo": "Mujahid khan.jfif"
+      "photo": "Mujahid khan SM.jfif"
     },
     {
       "id": 6,
@@ -58,7 +58,7 @@
       "mobile": "+92 333 3367310",
       "whatsapp": "9233333367310",
       "email": "malaksaad266@gmail.com",
-      "photo": "Malik Saad Khan Sales executive.jfif"
+      "photo": "Malik Saad Khan Sales E.jfif"
     },
     {
       "id": 7,
@@ -69,6 +69,16 @@
       "whatsapp": "923175988914",
       "email": "syedumairrealtor@gmail.com",
       "photo": "Syed Umair.jfif"
+    },
+    {
+      "id": 8,
+      "name": "Ijaz Muhammad",
+      "role": "Graphic Designer & Accounts Officer",
+      "area": "Head Office — Nasir Bagh Road",
+      "mobile": "+92 349 8756952",
+      "whatsapp": "923498756952",
+      "email": "ijazkhanxada@gmail.com",
+      "photo": "Ijaz Account officer.jfif"
     }
   ]
 }
