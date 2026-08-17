@@ -21,7 +21,7 @@ module.exports = async function (req, res) {
     member.whatsapp = wa || member.whatsapp;
     member.photo = body.photo || member.photo;
     member.email = body.email || member.email;
-    await writeJsonBlob(KEYS.team, file);
-    return json(res, 200, { ok: true, member: member });
+    const saved = await writeJsonBlob(KEYS.team, file);
+    return json(res, 200, { ok: true, saved: saved, member: member });
   });
 };
