@@ -291,6 +291,37 @@ function handleApi(req, res, urlPath) {
     return true;
   }
 
+  // ---------- PUT /api/team/:id (edit employee) ----------
+  const teamEditMatch = urlPath.match(/^\/api\/team\/([^/]+)$/);
+  if (teamEditMatch && req.method === "PUT") {
+    const memberId = teamEditMatch[1];
+    readBody(req, function (err, body) {
+      if (err) return sendJson(res, 400, { ok: false, error: String(err.message) });
+      let parsed = null;
+      try {
+        parsed = JSON.parse(body.toString("utf8"));
+      } catch (e) {}
+      if (!parsed || !parsed.name) return sendJson(res, 400, { ok: false, error: "Employee name is required." });
+      const file = readJson(TEAM_FILE, { members: [] });
+      const member = file.members.find(function (m) {
+        return String(m.id) === String(memberId);
+      });
+      if (!member) return sendJson(res, 404, { ok: false, error: "Team member not found." });
+      let wa = String(parsed.mobile || "").replace(/[^\d]/g, "");
+      if (wa.length === 10) wa = "92" + wa;
+      member.name = parsed.name;
+      member.role = parsed.role || member.role;
+      member.area = parsed.area || member.area;
+      member.mobile = parsed.mobile || member.mobile;
+      member.whatsapp = wa || member.whatsapp;
+      member.photo = parsed.photo || member.photo;
+      member.email = parsed.email || member.email;
+      writeJson(TEAM_FILE, file);
+      return sendJson(res, 200, { ok: true, member: member });
+    });
+    return true;
+  }
+
   sendJson(res, 404, { ok: false, error: "Not found." });
   return true;
 }

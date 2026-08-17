@@ -127,8 +127,70 @@
         '<img src="' + esc(baseImg(m.photo)) + '" alt="">' +
         '<div class="li-body"><strong>' + esc(m.name) + "</strong>" +
         "<span>" + esc(m.role || "") + " &bull; " + esc(m.mobile || "") + " &bull; " + esc(m.email || "") + "</span></div>" +
+        '<button type="button" class="btn btn-ghost btn-sm team-edit-btn" data-id="' + esc(m.id) + '">Edit</button>' +
         "</div>";
     }).join("");
+    Array.prototype.forEach.call(box.querySelectorAll(".team-edit-btn"), function (btn) {
+      btn.addEventListener("click", function () { openTeamEdit(btn.getAttribute("data-id")); });
+    });
+  }
+
+  var editingTeamId = null;
+
+  function openTeamEdit(id) {
+    var member = null;
+    state.team.forEach(function (m) { if (String(m.id) === String(id)) member = m; });
+    if (!member) return showMsg("Team member not found.", "err");
+    editingTeamId = id;
+    $("editTmName").value = member.name || "";
+    $("editTmRole").value = member.role || "";
+    $("editTmArea").value = member.area || "";
+    $("editTmMobile").value = member.mobile || "";
+    $("editTmEmail").value = member.email || "";
+    $("editTmPhoto").value = "";
+    $("editTmPhotoPreview").innerHTML = "";
+    $("editTeamCard").style.display = "block";
+    $("editTeamCard").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function closeTeamEdit() {
+    editingTeamId = null;
+    $("editTeamCard").style.display = "none";
+  }
+
+  function saveTeamEdit() {
+    if (!editingTeamId) return;
+    var name = $("editTmName").value.trim();
+    if (!name) return showMsg("Employee name is required.", "err");
+    var payload = {
+      name: name,
+      role: $("editTmRole").value.trim(),
+      area: $("editTmArea").value.trim(),
+      mobile: $("editTmMobile").value.trim(),
+      email: $("editTmEmail").value.trim()
+    };
+    var file = $("editTmPhoto").files && $("editTmPhoto").files[0];
+    var finish = function () {
+      api("PUT", "team/" + encodeURIComponent(editingTeamId), payload, function (res, status) {
+        if (status === 200 && res && res.ok) {
+          showMsg('Employee "' + payload.name + '" updated successfully.', "ok");
+          closeTeamEdit();
+          loadData();
+        } else {
+          showMsg((res && res.error) || "Could not update employee.", "err");
+        }
+      });
+    };
+    if (file) {
+      showMsg("Uploading photo...", "info");
+      uploadImage(file, function (url, err) {
+        if (url) payload.photo = url;
+        else if (err) showMsg("Photo upload failed: " + err + ".", "err");
+        finish();
+      });
+    } else {
+      finish();
+    }
   }
 
   function renderProjectSelect() {
@@ -319,6 +381,8 @@
     if ($("addProjectBtn")) $("addProjectBtn").addEventListener("click", addProject);
     if ($("addImagesBtn")) $("addImagesBtn").addEventListener("click", addImages);
     if ($("addTeamBtn")) $("addTeamBtn").addEventListener("click", addTeam);
+    if ($("saveTeamBtn")) $("saveTeamBtn").addEventListener("click", saveTeamEdit);
+    if ($("cancelTeamBtn")) $("cancelTeamBtn").addEventListener("click", closeTeamEdit);
 
     document.querySelectorAll(".tab").forEach(function (tab) {
       tab.addEventListener("click", function () { switchPanel(tab.getAttribute("data-panel")); });
@@ -327,6 +391,7 @@
     if ($("prImage")) $("prImage").addEventListener("change", function () { previewFiles("prImage", "prImagePreview"); });
     if ($("imgFiles")) $("imgFiles").addEventListener("change", function () { previewFiles("imgFiles", "imgPreview"); });
     if ($("tmPhoto")) $("tmPhoto").addEventListener("change", function () { previewFiles("tmPhoto", "tmPhotoPreview"); });
+    if ($("editTmPhoto")) $("editTmPhoto").addEventListener("change", function () { previewFiles("editTmPhoto", "editTmPhotoPreview"); });
   }
 
   function init() {
