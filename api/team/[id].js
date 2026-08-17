@@ -22,6 +22,6 @@ module.exports = async function (req, res) {
     member.photo = body.photo || member.photo;
     member.email = body.email || member.email;
     const saved = await writeJsonBlob(KEYS.team, file);
-    return json(res, 200, { ok: true, saved: saved, member: member });
+    return json(res, saved ? 200 : 500, { ok: saved, error: saved ? undefined : "Could not save to storage.", member: member });
   });
 };
