@@ -77,14 +77,34 @@
   function loadJSON(name) {
     return new Promise(function (resolve) {
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", apiPrefix + "data/" + name, true);
+      xhr.open("GET", apiPrefix + "api/data", true);
       xhr.onload = function () {
-        if (xhr.status !== 200) return resolve(null);
-        try { resolve(JSON.parse(xhr.responseText)); } catch (e) { resolve(null); }
+        if (xhr.status !== 200) return loadJSONFile(name, resolve);
+        try {
+          var data = JSON.parse(xhr.responseText);
+          if (!data || !data.ok) return loadJSONFile(name, resolve);
+          if (name === "projects.json") return resolve({ projects: data.projects || [] });
+          if (name === "team.json") return resolve({ members: data.team || [] });
+          if (name === "gallery.json") return resolve({ images: data.gallery || [] });
+          return loadJSONFile(name, resolve);
+        } catch (e) {
+          return loadJSONFile(name, resolve);
+        }
       };
-      xhr.onerror = function () { resolve(null); };
+      xhr.onerror = function () { loadJSONFile(name, resolve); };
       xhr.send();
     });
+  }
+
+  function loadJSONFile(name, resolve) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", apiPrefix + "data/" + name, true);
+    xhr.onload = function () {
+      if (xhr.status !== 200) return resolve(null);
+      try { resolve(JSON.parse(xhr.responseText)); } catch (e) { resolve(null); }
+    };
+    xhr.onerror = function () { resolve(null); };
+    xhr.send();
   }
 
   function renderGrid(el, items, fn) {

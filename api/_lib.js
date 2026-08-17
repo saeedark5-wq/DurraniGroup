@@ -103,7 +103,7 @@ function blobClient() {
 
 function blobUrl(key) {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return null;
-  return "https://dwydvfbspixp0i2t.public.blob.vercel-storage.com/" + encodeURIComponent(key);
+  return "https://dwydvfbspixp0i2t.public.blob.vercel-storage.com/" + encodeURIComponent(key) + "?r=" + Date.now();
 }
 
 async function readJsonBlob(key, localFile, fallback) {
