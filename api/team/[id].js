@@ -11,7 +11,7 @@ module.exports = async function (req, res) {
     if (!body || !body.name) return json(res, 400, { ok: false, error: "Employee name is required." });
     const file = await readJsonBlob(KEYS.team, TEAM_FILE, { members: [] });
     const member = file.members.find(function (m) { return String(m.id) === String(memberId); });
-    if (!member) return json(res, 404, { ok: false, error: "Team member not found." });
+    if (!member) return json(res, 404, { ok: false, error: "Team member not found.", debug: { memberId: memberId, memberCount: file.members.length, sample: (file.members[0] && file.members[0].id) || null } });
     let wa = String(body.mobile || "").replace(/[^\d]/g, "");
     if (wa.length === 10) wa = "92" + wa;
     member.name = body.name;
