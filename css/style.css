@@ -1321,19 +1321,23 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 .wm-d8 {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 .wm-d8 img {
-  width: 480px;
-  max-width: 90vw;
-  opacity: 0.10;
-  filter: grayscale(1) contrast(1.08);
-  border-radius: 16px;
-  transform: rotate(-3deg);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.14;
+  filter: grayscale(1) contrast(1.08) brightness(1.03);
+}
+.wm-d8::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.42) 50%, rgba(255, 255, 255, 0.68));
 }
 #armed-vehicles .container { position: relative; z-index: 1; }
 .company-text > p { margin-bottom: 20px; }
