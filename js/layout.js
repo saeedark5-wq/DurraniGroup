@@ -69,6 +69,7 @@
               <li><a href="${base}pages/companies.html#landscape">Durrani Garden Landscape</a></li>
               <li><a href="${base}pages/companies.html#spring-rose">Spring Rose Real Estate</a></li>
               <li><a href="${base}pages/companies.html#events">Spring Rose Events</a></li>
+              <li><a href="${base}pages/companies.html#armed-vehicles">Durrani Armed Vehicles Pakistan</a></li>
             </ul>
           </li>
           <li class="dropdown">
