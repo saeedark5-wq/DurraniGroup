@@ -1570,11 +1570,19 @@ html, body { overflow-x: clip; }
 
 /* ---------- Page hero (inner pages) ---------- */
 .page-hero {
-  background: linear-gradient(120deg, #0c0c0c, #1c1912 55%, #2a2314);
+  position: relative;
+  min-height: 58vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, rgba(8, 8, 6, 0.62), rgba(20, 17, 8, 0.38) 55%, rgba(12, 12, 12, 0.62)), url("../new pic.jfif") center / cover no-repeat, #1c1912;
   color: #fff;
   padding: 90px 0;
   text-align: center;
 }
+.page-hero .container { position: relative; z-index: 1; width: 100%; }
+.page-hero h1 { text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6); }
+.page-hero p { text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55); }
 .page-hero h1 { color: #fff; font-size: 46px; margin-bottom: 12px; }
 .page-hero p { color: #e6dab0; font-size: 16.5px; max-width: 640px; margin: 0 auto; }
 .page-hero .eyebrow { color: var(--green); }
